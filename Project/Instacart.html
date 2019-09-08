@@ -14596,7 +14596,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Exploratory-Visualization">Exploratory Visualization<a class="anchor-link" href="#Exploratory-Visualization">&#182;</a></h3><p>Looking at the Orders, we have <strong>eval_set</strong> which describes whether that respective order is treated as training or testing, Orders which are marked <strong>prior</strong> can be treated as training set.</p>
+<h3 id="Exploratory-Visualization-and--Descriptive-Stats">Exploratory Visualization and  Descriptive Stats<a class="anchor-link" href="#Exploratory-Visualization-and--Descriptive-Stats">&#182;</a></h3><p>Looking at the Orders, we have <strong>eval_set</strong> which describes whether that respective order is treated as training or testing, Orders which are marked <strong>prior</strong> can be treated as training set.</p>
 
 </div>
 </div>
@@ -14610,7 +14610,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">orders_type</span><span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;eval_set&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14645,7 +14645,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plotting the above count</span>
@@ -14692,7 +14692,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_hour_count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;order_hour_of_day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14740,6 +14740,47 @@ Name: eval_set, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_hour_count</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[54]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count        24.00000
+mean     142545.12500
+std      114125.98611
+min        5474.00000
+25%       28586.25000
+50%      122430.50000
+75%      272625.00000
+max      288418.00000
+Name: order_hour_of_day, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14749,7 +14790,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_day</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;order_dow&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14789,6 +14830,47 @@ Name: eval_set, dtype: int64
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_day</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[55]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count         7.000000
+mean     488726.142857
+std       73274.459369
+min      426339.000000
+25%      442866.500000
+50%      453368.000000
+75%      527369.000000
+max      600905.000000
+Name: order_dow, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14806,7 +14888,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_orders_count</span> <span class="o">=</span> <span class="n">df_orders</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)[</span><span class="s1">&#39;order_number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -14860,6 +14942,47 @@ Name: eval_set, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">split_orders_count</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[56]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count       97.000000
+mean      2125.865979
+std       4144.374897
+min         47.000000
+25%        138.000000
+50%        554.000000
+75%       1779.000000
+max      23986.000000
+Name: order_number, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14869,7 +14992,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">days_since_prior_order</span> <span class="o">=</span> <span class="n">df_orders</span><span class="p">[</span><span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -14917,6 +15040,47 @@ Name: eval_set, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">days_since_prior_order</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[57]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count        31.000000
+mean     103705.612903
+std       95317.188052
+min       19016.000000
+25%       33198.000000
+50%       67755.000000
+75%      163482.000000
+max      369323.000000
+Name: days_since_prior_order, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14926,7 +15090,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># In order_products_prior</span>
@@ -14943,7 +15107,7 @@ Name: eval_set, dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[44]:</div>
 
 
 
@@ -14960,7 +15124,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># In order_proudcts_train</span>
@@ -14977,7 +15141,7 @@ Name: eval_set, dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[45]:</div>
 
 
 
@@ -15009,7 +15173,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_products_count</span> <span class="o">=</span> <span class="n">df_order_products_prior</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_id&#39;</span><span class="p">)[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
@@ -15059,6 +15223,47 @@ Name: eval_set, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_products_cnt</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[58]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count        60.000000
+mean      53567.683333
+std       75285.846549
+min         119.000000
+25%        1009.750000
+50%       10411.000000
+75%       83805.000000
+max      228330.000000
+Name: add_to_cart_order, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15069,7 +15274,7 @@ Name: eval_set, dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">order_products_count</span><span class="p">[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15085,7 +15290,7 @@ Name: eval_set, dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[47]:</div>
 
 
 
@@ -15114,7 +15319,7 @@ Name: add_to_cart_order, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">products_prior</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">df_order_products_prior</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">df_orders</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;order_id&#39;</span><span class="p">)</span>
@@ -15128,12 +15333,10 @@ Name: add_to_cart_order, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># user_products = pd.concat([products_prior, products_train])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">products_prior</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">products_prior</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">products_prior</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -15158,7 +15361,7 @@ Name: add_to_cart_order, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[49]:</div>
 
 
 
@@ -15290,7 +15493,7 @@ Name: add_to_cart_order, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">common_products</span> <span class="o">=</span> <span class="n">products_prior</span><span class="p">[</span><span class="s1">&#39;product_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -15307,7 +15510,7 @@ Name: add_to_cart_order, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[50]:</div>
 
 
 
@@ -15359,7 +15562,7 @@ Name: product_name, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">products_prior</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">products_prior</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">df_departments</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;department_id&#39;</span><span class="p">)</span>
@@ -15376,7 +15579,7 @@ Name: product_name, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[51]:</div>
 
 
 
@@ -15514,7 +15717,7 @@ Name: product_name, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">department_orders</span> <span class="o">=</span> <span class="n">products_prior</span><span class="p">[</span><span class="s1">&#39;department&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -15557,7 +15760,7 @@ Name: product_name, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">department_orders</span>
@@ -15573,7 +15776,7 @@ Name: product_name, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -15619,7 +15822,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">df_aisles</span>
@@ -15637,7 +15840,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">orders_type</span>
@@ -15670,7 +15873,7 @@ Name: department, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Methodology-">Methodology <a id="methodology" /><a class="anchor-link" href="#Methodology-">&#182;</a></h2><p>We want to predict products in next order, in order to do that We have to have create feature set for training along with label.</p>
+<h2 id="Methodology-">Methodology <a id="methodology" /><a class="anchor-link" href="#Methodology-">&#182;</a></h2><p>We want to predict products in next order, in order to do that We have to create feature set for training along with label and then use the model to predict for future purchasing pattern.</p>
 <p>We are ignoring aisle as it doesn't influence customer buying habit.</p>
 
 </div>
@@ -15678,7 +15881,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">priorOrderItems</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;dataset/order_products__prior.csv&#39;</span><span class="p">)</span>
@@ -15702,7 +15905,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">orderGroup</span> <span class="o">=</span> <span class="n">priorOrderItems</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;order_id&#39;</span><span class="p">)[</span><span class="s1">&#39;add_to_cart_order&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;basket_size&#39;</span><span class="p">)</span>
@@ -15734,7 +15937,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[48]:</div>
+    <div class="prompt output_prompt">Out[62]:</div>
 
 
 
@@ -15825,7 +16028,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">orderItems</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">priorOrderItems</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;order_id&#39;</span><span class="p">)</span>
@@ -15856,7 +16059,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[49]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -15982,7 +16185,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">userProducts</span> <span class="o">=</span> <span class="n">orderItems</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;eval_set == &quot;prior&quot;&#39;</span><span class="p">)</span>
@@ -16017,7 +16220,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[50]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
@@ -16137,7 +16340,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># finding mean</span>
@@ -16174,7 +16377,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[51]:</div>
+    <div class="prompt output_prompt">Out[65]:</div>
 
 
 
@@ -16288,7 +16491,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># To verify that total products count is same as sum of repeated and non-repeated products count.</span>
@@ -16305,7 +16508,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[52]:</div>
+    <div class="prompt output_prompt">Out[66]:</div>
 
 
 
@@ -16322,7 +16525,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_distinct_products</span> <span class="o">=</span> <span class="n">userAvgProducts</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s1">&#39;product_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
@@ -16354,7 +16557,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[67]:</div>
 
 
 
@@ -16425,7 +16628,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">userAvgProducts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">user_distinct_products</span><span class="p">,</span> <span class="n">userAvgProducts</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
@@ -16454,7 +16657,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[54]:</div>
+    <div class="prompt output_prompt">Out[68]:</div>
 
 
 
@@ -16574,7 +16777,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">userAvgProducts</span><span class="p">[</span><span class="s1">&#39;user_reorder_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">userAvgProducts</span><span class="p">[</span><span class="s1">&#39;user_reordered_products&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">userAvgProducts</span><span class="p">[</span><span class="s1">&#39;distinct_products&#39;</span><span class="p">]</span>
@@ -16591,7 +16794,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[55]:</div>
+    <div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -16718,7 +16921,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">userAvgProducts</span>
@@ -16732,7 +16935,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">userOrders</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;eval_set == &quot;prior&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
@@ -16761,7 +16964,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[57]:</div>
+    <div class="prompt output_prompt">Out[71]:</div>
 
 
 
@@ -16860,7 +17063,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">userOrders</span> <span class="o">=</span> <span class="n">userOrders</span><span class="p">[[</span><span class="s1">&#39;order_number&#39;</span><span class="p">]]</span>
@@ -16893,7 +17096,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[58]:</div>
+    <div class="prompt output_prompt">Out[72]:</div>
 
 
 
@@ -17027,7 +17230,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;product_id&#39;</span><span class="p">)</span>
@@ -17058,7 +17261,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[59]:</div>
+    <div class="prompt output_prompt">Out[73]:</div>
 
 
 
@@ -17190,7 +17393,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">user_order_group</span> <span class="o">=</span> <span class="n">orders</span><span class="p">[</span><span class="n">orders</span><span class="p">[</span><span class="s1">&#39;eval_set&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;prior&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s1">&#39;order_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">:</span><span class="s1">&#39;mean&#39;</span><span class="p">})</span>
@@ -17220,7 +17423,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[60]:</div>
+    <div class="prompt output_prompt">Out[74]:</div>
 
 
 
@@ -17291,7 +17494,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">user_order_group</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -17320,7 +17523,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[61]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
@@ -17464,7 +17667,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;user_total_products&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;user_avg_basket_size&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">features</span><span class="p">[</span><span class="s1">&#39;user_orders&#39;</span><span class="p">]</span>
@@ -17481,7 +17684,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[62]:</div>
+    <div class="prompt output_prompt">Out[76]:</div>
 
 
 
@@ -17631,7 +17834,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_orders</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;eval_set == &quot;train&quot;&#39;</span><span class="p">)</span>
@@ -17645,7 +17848,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">train_orders</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
@@ -17659,7 +17862,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="n">train_orders</span>
@@ -17674,7 +17877,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_features</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;order_id&#39;</span><span class="p">,</span><span class="s1">&#39;product_id&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -17688,7 +17891,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -17716,7 +17919,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[67]:</div>
+    <div class="prompt output_prompt">Out[81]:</div>
 
 
 
@@ -17897,7 +18100,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -17925,7 +18128,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[68]:</div>
+    <div class="prompt output_prompt">Out[82]:</div>
 
 
 
@@ -18106,7 +18309,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_features</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;eval_set&#39;</span><span class="p">,</span><span class="s1">&#39;order_number&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -18127,7 +18330,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_orders</span> <span class="o">=</span> <span class="n">orders</span><span class="p">[</span><span class="n">orders</span><span class="p">[</span><span class="s1">&#39;eval_set&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
@@ -18157,7 +18360,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[70]:</div>
+    <div class="prompt output_prompt">Out[84]:</div>
 
 
 
@@ -18271,7 +18474,7 @@ Name: department, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">trainProducts</span> <span class="o">=</span> <span class="n">trainProducts</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)[</span><span class="s1">&#39;product_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
@@ -18288,7 +18491,7 @@ Name: department, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[71]:</div>
+    <div class="prompt output_prompt">Out[85]:</div>
 
 
 
@@ -18311,7 +18514,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm</span>
@@ -18337,7 +18540,7 @@ Name: product_id, dtype: object</pre>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>8474661it [03:28, 40660.89it/s]</pre>
+<pre>8474661it [03:14, 43481.99it/s]</pre>
 </div>
 </div>
 
@@ -18369,7 +18572,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_features</span><span class="o">.</span><span class="n">columns</span>
@@ -18385,7 +18588,7 @@ Name: product_id, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[73]:</div>
+    <div class="prompt output_prompt">Out[87]:</div>
 
 
 
@@ -18416,7 +18619,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">feature_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user_avg_basket_size&#39;</span><span class="p">,</span><span class="s1">&#39;days_since_prior_order&#39;</span><span class="p">,</span><span class="s1">&#39;user_product_reorder_rate&#39;</span><span class="p">,</span><span class="s1">&#39;user_product_dow&#39;</span><span class="p">,</span>
@@ -18434,7 +18637,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">train_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -18462,7 +18665,7 @@ Name: product_id, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[89]:</div>
 
 
 
@@ -18576,7 +18779,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -18604,7 +18807,7 @@ Name: product_id, dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[76]:</div>
+    <div class="prompt output_prompt">Out[90]:</div>
 
 
 
@@ -18718,11 +18921,11 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">500000</span><span class="p">]</span>
-<span class="n">Y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trainLabels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int8&#39;</span><span class="p">)[:</span><span class="mi">500000</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">5000000</span><span class="p">]</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trainLabels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int8&#39;</span><span class="p">)[:</span><span class="mi">5000000</span><span class="p">]</span>
 
 <span class="nb">print</span> <span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Y_train</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
@@ -18770,7 +18973,7 @@ Name: product_id, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="k">import</span> <span class="n">Sequential</span>
@@ -18785,39 +18988,23 @@ Name: product_id, dtype: object</pre>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Using TensorFlow backend.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_list</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_list</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
@@ -18843,26 +19030,30 @@ Name: product_id, dtype: object</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Model: &#34;sequential&#34;
+<pre>Model: &#34;sequential_20&#34;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense (Dense)                (None, 10)                110       
+dense_172 (Dense)            (None, 16)                176       
 _________________________________________________________________
-dense_1 (Dense)              (None, 128)               1408      
+dense_173 (Dense)            (None, 64)                1088      
 _________________________________________________________________
-dense_2 (Dense)              (None, 128)               16512     
+dense_174 (Dense)            (None, 64)                4160      
 _________________________________________________________________
-dense_3 (Dense)              (None, 128)               16512     
+dense_175 (Dense)            (None, 64)                4160      
 _________________________________________________________________
-dense_4 (Dense)              (None, 128)               16512     
+dense_176 (Dense)            (None, 64)                4160      
 _________________________________________________________________
-dense_5 (Dense)              (None, 128)               16512     
+dense_177 (Dense)            (None, 64)                4160      
 _________________________________________________________________
-dense_6 (Dense)              (None, 1)                 129       
+dense_178 (Dense)            (None, 64)                4160      
+_________________________________________________________________
+dense_179 (Dense)            (None, 64)                4160      
+_________________________________________________________________
+dense_180 (Dense)            (None, 1)                 65        
 =================================================================
-Total params: 67,695
-Trainable params: 67,695
+Total params: 26,289
+Trainable params: 26,289
 Non-trainable params: 0
 _________________________________________________________________
 </pre>
@@ -18882,11 +19073,11 @@ _________________________________________________________________
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># fit the model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_list</span><span class="p">)</span>
 
 <span class="n">scores</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">: </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">metrics_names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">scores</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
@@ -18905,64 +19096,30 @@ _________________________________________________________________
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>WARNING: Logging before flag parsing goes to stderr.
-W0901 15:18:46.325304 4494882240 deprecation.py:323] From /anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/math_grad.py:1250: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
-Instructions for updating:
-Use tf.where in 2.0, which has the same broadcast rule as np.where
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Train on 500000 samples
-Epoch 1/10
-499904/500000 [============================&gt;.] - ETA: 0s - loss: 0.2680 - accuracy: 0.9070
-Epoch 00001: loss improved from inf to 0.26802, saving model to model.h5
-500000/500000 [==============================] - 43s 86us/sample - loss: 0.2680 - accuracy: 0.9070
-Epoch 2/10
-499616/500000 [============================&gt;.] - ETA: 0s - loss: 0.2652 - accuracy: 0.9074
-Epoch 00002: loss improved from 0.26802 to 0.26513, saving model to model.h5
-500000/500000 [==============================] - 41s 82us/sample - loss: 0.2651 - accuracy: 0.9074
-Epoch 3/10
-499456/500000 [============================&gt;.] - ETA: 0s - loss: 0.2645 - accuracy: 0.9077
-Epoch 00003: loss improved from 0.26513 to 0.26449, saving model to model.h5
-500000/500000 [==============================] - 41s 83us/sample - loss: 0.2645 - accuracy: 0.9077
-Epoch 4/10
-499616/500000 [============================&gt;.] - ETA: 0s - loss: 0.2641 - accuracy: 0.9077
-Epoch 00004: loss improved from 0.26449 to 0.26410, saving model to model.h5
-500000/500000 [==============================] - 42s 84us/sample - loss: 0.2641 - accuracy: 0.9077
-Epoch 5/10
-499872/500000 [============================&gt;.] - ETA: 0s - loss: 0.2639 - accuracy: 0.9077
-Epoch 00005: loss improved from 0.26410 to 0.26389, saving model to model.h5
-500000/500000 [==============================] - 43s 85us/sample - loss: 0.2639 - accuracy: 0.9077
-Epoch 6/10
-499776/500000 [============================&gt;.] - ETA: 0s - loss: 0.2638 - accuracy: 0.9077
-Epoch 00006: loss improved from 0.26389 to 0.26378, saving model to model.h5
-500000/500000 [==============================] - 42s 84us/sample - loss: 0.2638 - accuracy: 0.9077
-Epoch 7/10
-499616/500000 [============================&gt;.] - ETA: 0s - loss: 0.2636 - accuracy: 0.9078
-Epoch 00007: loss improved from 0.26378 to 0.26361, saving model to model.h5
-500000/500000 [==============================] - 43s 86us/sample - loss: 0.2636 - accuracy: 0.9078
-Epoch 8/10
-499424/500000 [============================&gt;.] - ETA: 0s - loss: 0.2635 - accuracy: 0.9078
-Epoch 00008: loss improved from 0.26361 to 0.26347, saving model to model.h5
-500000/500000 [==============================] - 43s 86us/sample - loss: 0.2635 - accuracy: 0.9078
-Epoch 9/10
-499584/500000 [============================&gt;.] - ETA: 0s - loss: 0.2635 - accuracy: 0.9079
-Epoch 00009: loss improved from 0.26347 to 0.26346, saving model to model.h5
-500000/500000 [==============================] - 43s 86us/sample - loss: 0.2635 - accuracy: 0.9079
-Epoch 10/10
-499936/500000 [============================&gt;.] - ETA: 0s - loss: 0.2634 - accuracy: 0.9078 ETA: 0s - los
-Epoch 00010: loss improved from 0.26346 to 0.26339, saving model to model.h5
-500000/500000 [==============================] - 43s 86us/sample - loss: 0.2634 - accuracy: 0.9078
+<pre>Train on 5000000 samples
+Epoch 1/5
+4999360/5000000 [============================&gt;.] - ETA: 0s - loss: 0.2661 - accuracy: 0.9068
+Epoch 00001: loss improved from inf to 0.26605, saving model to model.h5
+5000000/5000000 [==============================] - 388s 78us/sample - loss: 0.2660 - accuracy: 0.9068
+Epoch 2/5
+4999872/5000000 [============================&gt;.] - ETA: 0s - loss: 0.2650 - accuracy: 0.9070
+Epoch 00002: loss improved from 0.26605 to 0.26500, saving model to model.h5
+5000000/5000000 [==============================] - 389s 78us/sample - loss: 0.2650 - accuracy: 0.9070
+Epoch 3/5
+4999680/5000000 [============================&gt;.] - ETA: 0s - loss: 0.2648 - accuracy: 0.9071
+Epoch 00003: loss improved from 0.26500 to 0.26476, saving model to model.h5
+5000000/5000000 [==============================] - 390s 78us/sample - loss: 0.2648 - accuracy: 0.9071
+Epoch 4/5
+4999456/5000000 [============================&gt;.] - ETA: 0s - loss: 0.2648 - accuracy: 0.9071
+Epoch 00004: loss did not improve from 0.26476
+5000000/5000000 [==============================] - 388s 78us/sample - loss: 0.2648 - accuracy: 0.9071
+Epoch 5/5
+4999712/5000000 [============================&gt;.] - ETA: 0s - loss: 0.2648 - accuracy: 0.9071
+Epoch 00005: loss did not improve from 0.26476
+5000000/5000000 [==============================] - 402s 80us/sample - loss: 0.2648 - accuracy: 0.9071
 
-accuracy: 90.80%
+accuracy: 90.72%
 </pre>
 </div>
 </div>
@@ -18974,17 +19131,17 @@ accuracy: 90.80%
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Training-dataset-lables">Training dataset lables<a class="anchor-link" href="#Training-dataset-lables">&#182;</a></h3>
+<h3 id="Testing-model-with-known-lables">Testing model with known lables<a class="anchor-link" href="#Testing-model-with-known-lables">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test_trained</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">500000</span><span class="p">:</span><span class="mi">1000000</span><span class="p">]</span>
-<span class="n">Y_test_trained</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trainLabels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int8&#39;</span><span class="p">)[</span><span class="mi">500000</span><span class="p">:</span><span class="mi">1000000</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test_trained</span> <span class="o">=</span> <span class="n">train_features</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">5000000</span><span class="p">:</span><span class="mi">8000000</span><span class="p">]</span>
+<span class="n">Y_test_trained</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">trainLabels</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int8&#39;</span><span class="p">)[</span><span class="mi">5000000</span><span class="p">:</span><span class="mi">8000000</span><span class="p">]</span>
 
 <span class="n">trained_preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_trained</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">trained_preds</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -19022,7 +19179,7 @@ accuracy: 90.80%
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(500000, 1)
+<pre>(3000000, 1)
 </pre>
 </div>
 </div>
@@ -19040,7 +19197,7 @@ accuracy: 90.80%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">truePositive</span> <span class="o">=</span> <span class="mi">0</span>
@@ -19081,8 +19238,8 @@ accuracy: 90.80%
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>19961 417496 33819 28724
-0.38961596642756063
+<pre>130154 2466080 238793 164973
+0.3919864352466743
 </pre>
 </div>
 </div>
@@ -19100,7 +19257,7 @@ accuracy: 90.80%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test</span> <span class="o">=</span> <span class="n">test_features</span><span class="p">[</span><span class="n">feature_list</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -19119,19 +19276,19 @@ accuracy: 90.80%
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[83]:</div>
+    <div class="prompt output_prompt">Out[167]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[0.20823574],
-       [0.075091  ],
-       [0.0955148 ],
+<pre>array([[0.11154908],
+       [0.09073204],
+       [0.07749286],
        ...,
-       [0.08333373],
-       [0.13769962],
-       [0.08333373]], dtype=float32)</pre>
+       [0.06097294],
+       [0.15800376],
+       [0.06097294]], dtype=float32)</pre>
 </div>
 
 </div>
@@ -19142,7 +19299,7 @@ accuracy: 90.80%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[168]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_preds</span><span class="o">.</span><span class="n">shape</span>
@@ -19158,7 +19315,7 @@ accuracy: 90.80%
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[84]:</div>
+    <div class="prompt output_prompt">Out[168]:</div>
 
 
 
@@ -19182,7 +19339,7 @@ accuracy: 90.80%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[169]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="p">{}</span>
@@ -19206,7 +19363,7 @@ accuracy: 90.80%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prediction.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csv_file</span><span class="p">:</span>
@@ -19223,7 +19380,7 @@ accuracy: 90.80%
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Justification">Justification<a class="anchor-link" href="#Justification">&#182;</a></h3><p>F-Score of our model is <strong>0.38961</strong> and F-Score of benchmark model is <strong>0.40972</strong>. So we can confidently say our final model and solution is significant enough to have adequately solved the problem.</p>
+<h3 id="Justification">Justification<a class="anchor-link" href="#Justification">&#182;</a></h3><p>F-Score of our model is <strong>0.39198</strong> and F-Score of benchmark model is <strong>0.40972</strong>. So we can confidently say our final model and solution is significant enough to have adequately solved the problem.</p>
 
 </div>
 </div>
@@ -19232,10 +19389,24 @@ accuracy: 90.80%
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Conclusion-">Conclusion <a id="conclusion" /><a class="anchor-link" href="#Conclusion-">&#182;</a></h2><h3 id="Reflection">Reflection<a class="anchor-link" href="#Reflection">&#182;</a></h3><p>After doing initial data exploration I was stuck how data provided can be used to make prediction, then came across feature extraction which is a must for this project to provide right input data for model and create training-labels out of those extracted data.</p>
+<p>ONce the data was ready, the next challenge was to pick right algorithm that best suit the algorithm - with prior experience and knowledge I choose Deep Neural Network with different hyperparameters until we arrive at best score.</p>
 <h3 id="Improvement">Improvement<a class="anchor-link" href="#Improvement">&#182;</a></h3><p>We could improve performance of our model by extracting more complex correlated features and using algorithms such as XGBoost.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
